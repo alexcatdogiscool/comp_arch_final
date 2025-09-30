@@ -2,6 +2,7 @@ import random
 
 
 def get_random_code(code_length, memory_size):
+    memory_size -= 1
 
     code = []
 
@@ -13,6 +14,7 @@ def get_random_code(code_length, memory_size):
 
 
 def get_array_code(code_length, memory_size, array_length_range, array_rate):
+    memory_size -= 1
 
     code = []
 
@@ -32,6 +34,7 @@ def get_array_code(code_length, memory_size, array_length_range, array_rate):
     return code
 
 def get_nested_array_code(code_length, memory_size, array_length_range, array_rate):
+    memory_size -= 1
 
     code = []
 
