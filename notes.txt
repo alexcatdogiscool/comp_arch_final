@@ -1,0 +1,38 @@
+
+
+// random code
+
+use a
+use b
+use j
+use p+1
+...
+
+in this example, there is no pattern, so a stream buffer is not useful here.
+
+
+
+// load an array
+
+int* arr = malloc(8)
+
+we know that if we load arr, we'll probably need arr+1, arr+2, ..., arr+7
+
+
+// nested loop
+
+int* a1 = malloc(4)
+int* a2 = malloc(4)
+
+for i in range(4):
+    for j in range(4):
+        use a2[j]
+    use a1[i]
+
+in this example, if we load a2, we also need a2+1, a2+2, a2+3, so we can load a2 insto a stream buffer
+also, if we load a1, we will need a1+1, a1+2, a1+3, but intermitantly, so a second stream buffer is useful.
+the code for this program might look like:
+
+{ld 4, ld 5, ld 6, ld 7}, {ld 0}, {ld 4, ld 5, ld 6, ld 7}, {ld 1}, {ld 4, ld 5, ld 6, ld 7}, {ld 2}, {ld 4, ...
+    ^ ar2                   ^ ar1       ^ar2                  ^ ar1             ^ ar2           ^ ar1       ^ ar2
+
